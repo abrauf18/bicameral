@@ -1,10 +1,19 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Sidebar from "./components/shared/Sidebar";
+import DataAnalysis from "./components/modules/Analysis/DataAnalysis";
 
-
-function App() {
-
+const App = () => {
   return (
-    <h1 className='bg-black text-blue-400'>Helo wirld</h1>
-  )
-}
+    <Router>
+      <div className="flex text-secondary-foreground max-h-full h-screen w-full" >
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<DataAnalysis />} />
+          <Route path="/campaigns" element={<h1>Campaigns Page</h1>} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
 
-export default App
+export default App;
