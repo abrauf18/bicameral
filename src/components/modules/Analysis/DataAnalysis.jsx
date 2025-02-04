@@ -11,7 +11,7 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 const DataAnalysis = ({
   images,
   items,
-  highlightedItemId, // itemKey we want to highlight
+  highlightedItemId,
 }) => {
   const [currentDoc, setCurrentDoc] = useState(Object.keys(images)[0] || "");
 
@@ -22,13 +22,10 @@ const DataAnalysis = ({
   const docList = Object.keys(images);
   const base64Src = images[currentDoc];
 
-  // We assume each itemData might have docName_coords like "INVOICE_coords", "CHECK_coords"
-  // We'll find coords for the currentDoc if they exist
   const boundingBoxes = [];
   Object.entries(items).forEach(([itemKey, itemData]) => {
     if (itemKey === "images") return;
     const { unique_id } = itemData;
-    // find something like "INVOICE_coords" that matches currentDoc
     const docCoordsKey = `${currentDoc}_coords`;
     if (itemData[docCoordsKey]) {
       itemData[docCoordsKey].forEach((coordObj) => {
@@ -41,22 +38,18 @@ const DataAnalysis = ({
     }
   });
 
-  // We'll define an aspect ratio or attempt to fit the image in a container
-  // For a real app, you might use a Zoom/Pan library
-  // The bounding boxes are absolutely positioned over the image container
   const viewerStyle = {
     position: "relative",
     border: "1px solid #ccc",
-    width: "600px",
-    height: "800px", // or auto, or use an actual ratio from the image
+    width: "100%",
+    height: "100%",
     overflow: "hidden",
   };
 
-  // We'll make the image 100% x 100% so bounding boxes line up with fraction coords
   const imageStyle = {
     width: "100%",
     height: "100%",
-    objectFit: "contain", // or 'cover' depending on your preference
+    objectFit: "contain",
   };
 
   return (
