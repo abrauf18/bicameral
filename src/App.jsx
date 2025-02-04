@@ -42,7 +42,7 @@ function App() {
   // Gather all unique itemKeys across all samples, ignoring "images"
   const allItemKeys = Array.from(
     new Set(
-      allSampleIds.flatMap(sampleId =>
+      allSampleIds.flatMap((sampleId) =>
         Object.keys(allInvoiceSamples[sampleId])
       )
     )
@@ -59,14 +59,26 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-10">Document Analyzer</h1>
+    <div className="container mx-auto py-10 px-2">
+      <h1 className="text-3xl font-bold mb-10 flex justify-center">
+        Document Analyzer
+      </h1>
 
       {/* Tabs for Main View vs. Data Table */}
       <Tabs defaultValue="main">
-        <TabsList className="mb-4">
-          <TabsTrigger value="main">Main View</TabsTrigger>
-          <TabsTrigger value="table">Data Table</TabsTrigger>
+        <TabsList className="bg-gray-300 gap-1 mb-4">
+          <TabsTrigger
+            value="main"
+            className="bg-gray-300 text-black hover:bg-black/20 "
+          >
+            Main View
+          </TabsTrigger>
+          <TabsTrigger
+            value="table"
+            className="bg-gray-300 text-black hover:bg-black/20"
+          >
+            Data Table
+          </TabsTrigger>
         </TabsList>
 
         {/* MAIN VIEW TAB */}

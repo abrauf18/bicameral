@@ -1,4 +1,3 @@
-
 import {
   Table,
   TableHeader,
@@ -8,13 +7,11 @@ import {
   TableCell,
 } from "../../ui/table";
 
-
 const DataTable = ({ allSamples, itemKeys, onEditValue }) => {
   return (
     <Table className="w-full my-4 whitespace-nowrap">
-      {/* Table Header */}
-      <TableHeader>
-        <TableRow>
+      <TableHeader className="bg-gray-200">
+        <TableRow className="hover:bg-transparent">
           {/* First column: Sample ID */}
           <TableHead>Sample ID</TableHead>
           {/* Additional columns for each itemKey */}
