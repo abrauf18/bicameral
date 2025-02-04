@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function DataAnalysis() {
-  return (
-    <div className='w-full bg-secondary'>DataAnalysis</div>
-  )
+  return <div className="bg-secondary">DataAnalysis</div>;
 }
 
-export default DataAnalysis
+export default DataAnalysis;

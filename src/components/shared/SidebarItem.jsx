@@ -1,22 +1,12 @@
+import clsx from "clsx";
+import { Link } from "react-router-dom";
 
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-
-
-
-const SidebarItem = ({
-  title,
-  Icon,
-  path,
-  className,
-  onClick,
-}) => {
-  console.log(Icon)
+const SidebarItem = ({ title, Icon, path, className, onClick }) => {
   return (
     <Link
       href={path}
       className={clsx(
-        'flex items-center md:justify-start justify-center gap-3 w-full px-4 py-3 transition-colors hover:bg-primary/90 hover:text-white rounded-md',
+        "flex items-center md:justify-start justify-center gap-3 w-full px-4 py-3 transition-colors hover:bg-white/60 hover:text-black text-white rounded-md",
         className
       )}
       onClick={onClick}
